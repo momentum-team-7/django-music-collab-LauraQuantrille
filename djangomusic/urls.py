@@ -24,6 +24,9 @@ urlpatterns = [
     path('artists/', views.artist_list, name='artists',),
     path('albums/<int:pk>/details/', views.album_detail, name='album-detail'),
     path('artist-list/<int:pk>/details/', views.artist_detail, name='artist-detail'),
+    path('artists/new', views.add_artist, name='add-artist'),
+    path('albums/new', views.add_album, name='add-album')
+
 ]
 
 if settings.DEBUG:

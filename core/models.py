@@ -28,5 +28,6 @@ class Artist(models.Model):
 
 
 
+
 #     # connect it to Album, use example from django docs and try to have a separate page to render the artists- needs to have foreign key, for each artist you want album to render
 #     # new view, new template, new model, relate 2 models together, new url
