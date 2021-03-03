@@ -1,5 +1,4 @@
 """djangomusic URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
@@ -17,11 +16,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 from core import views 
+from django.conf.urls.static import static # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.album_list, name='home'),
-    path('artists/', views.artist_list, name='artists',)
+    path('artists/', views.artist_list, name='artists',),
+    path('albums/<int:pk>/details/', views.album_detail, name='album-detail'),
+    path('artist-list/<int:pk>/details/', views.artist_detail, name='artist-detail'),
 ]
 
 if settings.DEBUG:
@@ -32,3 +34,6 @@ if settings.DEBUG:
         # For django versions before 2.0:
         # url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
+    if settings.DEBUG: # new
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

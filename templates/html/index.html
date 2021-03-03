@@ -1,18 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Music Collag</title>
-</head>
-<body>
-    <h1>Music Collab</h1>
-    {% for album in albums %}
-    {{ album }}
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+{% for album in albums %}
+<a href="{% url 'album-detail' album.pk %}">{{album}}</a>
+<img src="{{album.photo.url}}">
 {% endfor %}
 
-<h3><a href="/artists">Artist List</a></h3>
-</body>
-</html>
+{% endblock content %}
+
+
+
+
