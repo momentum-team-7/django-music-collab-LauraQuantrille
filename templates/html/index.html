@@ -4,7 +4,11 @@
 
 {% for album in albums %}
 <a href="{% url 'album-detail' album.pk %}">{{album}}</a>
+
+{% if album.photo %}
 <img src="{{album.photo.url}}">
+
+{% endif %}
 {% endfor %}
 
 {% endblock content %}
